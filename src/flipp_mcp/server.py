@@ -4,6 +4,7 @@ import re
 
 import requests
 from mcp.server.fastmcp import FastMCP
+from mcp.server.transport_security import TransportSecuritySettings
 
 
 def _generate_sid():
@@ -292,8 +293,17 @@ def search_flipp_items(query: str, postal_code: str, limit: int = 20) -> str:
     )
 
 
-def create_mcp(host: str = "127.0.0.1", port: int = 8000):
-    mcp = FastMCP("flipp", host=host, port=port)
+def create_mcp(
+    host: str = "127.0.0.1",
+    port: int = 8000,
+    transport_security: TransportSecuritySettings | None = None,
+):
+    mcp = FastMCP(
+        "flipp",
+        host=host,
+        port=port,
+        transport_security=transport_security,
+    )
     mcp.add_tool(get_flipp_data)
     mcp.add_tool(get_flipp_summary)
     mcp.add_tool(get_flyer_items)
