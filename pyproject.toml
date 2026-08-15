@@ -1,0 +1,21 @@
+[project]
+name = "flipp-mcp"
+version = "0.1.0"
+description = "MCP server that wraps the Flipp flyer/coupon scraper"
+requires-python = ">=3.11"
+dependencies = [
+    "mcp>=1.0.0,<2.0.0",
+    "requests>=2.28.0",
+]
+
+[project.scripts]
+flipp-mcp = "flipp_mcp.server:main"
+flipp-mcp-remote = "flipp_mcp.remote:main"
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+package-dir = { "" = "src" }
+packages = ["flipp_mcp"]

@@ -1,0 +1,12 @@
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.direnv/
+.env
+.envrc
+*.log
+*.har
+result
